@@ -1,0 +1,119 @@
+/** Toute la page **/
+*{
+font-family:  "Trebuchet MS", Helvetica, sans-serif;
+font-weight : bold;
+}
+body{
+width:1325px;
+height : 720px;
+margin : auto;
+}
+
+/** menuGauche **/
+div#menuGauche{
+	text-align:center;
+	width : 200px;
+	height : 720px;
+	border-right : 1px solid grey;
+	box-shadow: 2px 0px 0px 0px lightgrey;
+	float:left;
+	
+}
+.boite{
+border : 1px solid black;
+padding-left : 30px;
+padding-right : 30px;
+padding-top : 5px;
+padding-bottom : 5px;
+font-size : small;
+}
+a{
+text-decoration : none;
+color : black;
+}
+.titre{
+background: transparent;
+border-bottom : 2px solid black;
+border-top : 2px solid black;
+border-radius : 3px;
+margin-right : 15px;
+margin-left : 15px;
+}
+
+/** Haut de la page **/
+.nav{
+width: 100%;
+border-bottom : 1px solid grey;
+}
+.nav ul{
+list-style-type: none;
+}
+.nav li{
+display:inline;
+}
+.nav .button{
+display:inline;
+margin-left:400px;
+}
+.btnConnexion{
+display:inline;
+margin-left : 13%;
+}
+.btnDeconnexion{
+margin-left:31%;
+}
+
+/** Contenu de la page produits **/
+div#produits{
+width : 1120px;
+height : 720px;
+float:right;
+background-color : grey;
+}
+.hotStuff{
+margin-top : 50px;
+background-color : red;
+height : 200px;
+width : 60%;
+float:left;
+}
+.hotStuff p{
+color : white;
+font-size : 20px;
+}
+
+/** Page connexion **/
+.corps{
+width : 1120px;
+height : 720px;
+float:right;
+}
+.corps label{
+display: block;
+width : 200px;
+float: left;
+text-align : center;
+}
+.connexion{
+width:50%;
+height : 720px;
+float:left;
+border-right : 1px solid grey;
+box-shadow: 2px 0px 0px 0px lightgrey;
+}
+.inscription{
+width : 49%;
+height : 100%;
+float:right;
+}
+.title{
+font-weight : 100;
+font-size : 24px;
+color : #aaaaaa;
+text-align:center;
+}
+.center{
+margin-top : 30px;
+text-align : center;
+}
+
