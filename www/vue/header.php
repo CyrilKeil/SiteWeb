@@ -16,6 +16,7 @@ $pseudo = "";
 			<li><input type="text" name="recherche" id="recherche" size="50"/></li>
 			<li><input type="submit" value="Rechercher" /></li>
 			<?php
+			
 				if($pseudo != ""){
 					$page = "controleur/deconnexion.php";
 					?>
@@ -23,7 +24,7 @@ $pseudo = "";
 					<?php
 				}
 				else{
-					$page = "controleur/connexion.php";
+					$page = "connexion.php";
 					?>
 					<li class="btnConnexion"><input type ="button" class="button" onclick = "document.location.href='<?php echo $page ?>';" value="Connexion" /></li>
 					<?php
