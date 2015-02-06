@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Ven 06 Février 2015 à 08:23
+-- Généré le :  Sam 24 Janvier 2015 à 10:28
 -- Version du serveur :  5.6.21
 -- Version de PHP :  5.6.3
 
@@ -19,25 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `worldwidefood`
 --
-
--- --------------------------------------------------------
-
---
--- Structure de la table `administrateurs`
---
-
-CREATE TABLE IF NOT EXISTS `administrateurs` (
-`id` int(10) NOT NULL,
-  `login` varchar(25) NOT NULL,
-  `motdepasse` varchar(25) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-
---
--- Contenu de la table `administrateurs`
---
-
-INSERT INTO `administrateurs` (`id`, `login`, `motdepasse`) VALUES
-(1, 'admin', 'admin');
 
 -- --------------------------------------------------------
 
@@ -174,12 +155,6 @@ INSERT INTO `produits` (`id_produit`, `nom`, `description`, `prix`) VALUES
 --
 
 --
--- Index pour la table `administrateurs`
---
-ALTER TABLE `administrateurs`
- ADD PRIMARY KEY (`id`);
-
---
 -- Index pour la table `categories`
 --
 ALTER TABLE `categories`
@@ -225,11 +200,6 @@ ALTER TABLE `produits`
 -- AUTO_INCREMENT pour les tables exportées
 --
 
---
--- AUTO_INCREMENT pour la table `administrateurs`
---
-ALTER TABLE `administrateurs`
-MODIFY `id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pour la table `categories`
 --
