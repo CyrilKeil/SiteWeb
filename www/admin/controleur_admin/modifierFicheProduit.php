@@ -9,7 +9,7 @@
 		&& isset($_POST['prix']) && !empty($_POST['prix'])
 		&& isset($_POST['description']) && !empty($_POST['description'])
 		&& preg_match('#[0-9]+,?[0-9]{0,2}#', $_POST['prix'])
-		&& isset($_POST['categorie']))
+		&& isset($_POST['categorie']) && isset($_POST['coupdeCoeur']))
 		{
 			$pm = new ProduitManager($bdd);
 			$cm = new CategorieManager($bdd);
@@ -18,6 +18,14 @@
 			$p = new Produit($_POST);
 			$pm->setProduit($p);
 			$cm->majCategorieProduit($p,$idCategorie);
+			if($pm->isCoupCoeur($p) && $_POST['coupdeCoeur']=="non")
+			{
+				$pm->enleverCoupdecoeur($p);
+			}
+			if(!($pm->isCoupCoeur($p)) && $_POST['coupdeCoeur']=="oui")
+			{
+				$pm->changeEnCoupdeCoeur($p);
+			}
 		}
 		else
 		{

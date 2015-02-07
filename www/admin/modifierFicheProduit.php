@@ -26,6 +26,13 @@
 			echo "<h1>Fiche produit n°" . $p->getId() . "</h1>";
 			echo $p->getImage("../");
 		?>
+		<form action="controleur_admin/supprimerProduit.php" method="post">
+			<?php
+				echo "<input type='hidden' name='idProduit' value'" . $p->getId() "' />";
+			?>
+			<input type="submit" value="Supprimer le produit" />
+		</form>
+		
 		<form action="controleur_admin/modifierFicheProduit.php" method="post">
 		<?php
 			echo "<p><label for='nom'>Nom produit: </label>".

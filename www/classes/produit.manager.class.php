@@ -36,6 +36,19 @@
 			return (mysqli_num_rows($resultat) == 1);
 		}
 		
+		public function changeEnCoupdeCoeur($produit)
+		{
+			$requete = "INSERT INTO coupdecoeur (id_produit) VALUE (" . $produit->getId() . ")";
+			mysqli_query($this->bdd, $requete);
+		}
+		
+		
+		public function enleverCoupdecoeur ($produit)
+		{
+			$requete = "DELETE FROM coupdecoeur WHERE id_produit=" . $produit->getId();
+			mysqli_query($this->bdd, $requete);
+		}
+		
 		public function getListeCoupCoeur ($filtre){
 			$requete = "SELECT p.id_produit as id, p.nom, p.description, p.prix, c.nom as categorie " .
 						"FROM produits p, categorie_produit cp, categories c ".
@@ -121,6 +134,12 @@
 			
 			
 			mysqli_query($this->bdd,$requete);
+		}
+		
+		public function supprimerProduit($produit)
+		{
+			$requete = "DELETE FROM produits WHERE id_produit=" . $produit->getId();
+			mysqli_query($this->bdd, $requete);
 		}
 	}
 ?>
