@@ -116,7 +116,6 @@
 		
 		public function setProduit ($produit)
 		{
-			$infos = $produit->getInfosProduit;
 			$requete = "UPDATE produits " . 
 						"SET prix = " . $infos['prix'] . ", description= " . $infos['description'] . ", nom = " . $infos['nom'] . " ".
 						"WHERE id_produit = ". $infos['id'];
