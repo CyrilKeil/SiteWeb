@@ -45,23 +45,21 @@
 			return $nom;
 		}
 		
-		/* public function getCategorieProduit($idProduit)
+		public function getLibelleCategorieProduit($produit)
 		{
 			$requete = "SELECT c.id_categorie as id, c.nom ".
 						"FROM categories c, categorie_produit cp ".
 						"WHERE c.id_categorie = cp.id_categorie ".
-						"AND cp.id_produit= ". $idProduit;
+						"AND cp.id_produit= ". $produit->getId();
 			$resultat = mysqli_query($this->bdd, $requete);
-			$return = array();
+			$return = "";
 			if (mysqli_num_rows($resultat) == 1){
 				$temp =  mysqli_fetch_assoc($resultat);
-				$return['id'] = $temp ['id']; 
-				$return['nom'] = $temp ['nom']; 
+				$return = $temp ['nom']; 
 			}
 			
 			return $return;
 		}
-		*/
 		
 		public function supprCategorie($idCategorie)
 		{
@@ -93,7 +91,12 @@
 		{
 			$requete = "INSERT INTO categorie_produit (id_categorie, id_produit) ".
 						"VALUES(" . $idCategorie . ", " . $produit->getId() . " )";
-			
+			mysqli_query($this->bdd, $requete);
+		}
+		
+		public function suppressionCategorieProduit($produit)
+		{
+			$requete = "DELETE FROM categorie_produit WHERE id_produit=" . $produit->getId();
 			mysqli_query($this->bdd, $requete);
 		}
 	}

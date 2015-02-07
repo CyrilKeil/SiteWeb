@@ -30,55 +30,55 @@
 			require_once("vue_admin/menuGauche.php");
 		?>
 		
-		
-		<h2>Modification ou suppression d'une catégorie</h2>
-		<form action="controleur_admin/modifierCategorie.php" method="post">
-		<?php
-			echo "<input type='hidden' name='idProduit' id='idProduit' value='" . $idProduit . "' />";
-		?>
-			<input type="hidden" name="idCategorie" id="idCategorie" />
-			<p>
-				<label for="categorieActu">Catégories actuelles:</label>
-				<select name="categorieActu" id="categorieActu" onclick='changeValueIdCategorie()'>
-				<?php
-					foreach ($liste_categories as $value)
-					{
-						
-					echo "<option value='". $value[0] . "'>" . $value[1] . "</option>";
-					}
-				?>
-				</select>
-				<input type="button" onclick="apparitionDivModifCat();" value="Modifier" />
-				<input type="button" onclick="goPageSuppr();" value="Suprimer" />
-			</p>
-			<div id="mblock_modifCat">
-				
-				<p>
-					<label for="catModif">Nom:</label>
-					<input type="text" name="catModif" id="catModif" />
-				</p>
-				
-				<p>
-					<input type="submit" value="Valider" />
-				</p>
-				
-			</div>
-		
-		</form>
-		
-		<h2>Nouvelle catégorie</h2>
-		<form action="controleur_admin/ajouterCategorie.php" method="post" >
+		<div class="centre">
+			<h1>Modification ou suppression d'une catégorie</h1>
+			<form action="controleur_admin/modifierCategorie.php" method="post">
 			<?php
-				echo "<input type='hidden' name='idProduit' value='" . $idProduit . "' />";
+				echo "<input type='hidden' name='idProduit' id='idProduit' value='" . $idProduit . "' />";
 			?>
+				<input type="hidden" name="idCategorie" id="idCategorie" />
+				<p>
+					<label for="categorieActu">Catégories actuelles:</label>
+					<select name="categorieActu" id="categorieActu" onclick='changeValueIdCategorie()'>
+					<?php
+						foreach ($liste_categories as $value)
+						{
+							
+						echo "<option value='". $value[0] . "'>" . $value[1] . "</option>";
+						}
+					?>
+					</select>
+					<input type="button" onclick="apparitionDivModifCat();" value="Modifier" />
+					<input type="button" onclick="goPageSuppr();" value="Suprimer" />
+				</p>
+				<div id="mblock_modifCat">
+					
+					<p>
+						<label for="catModif">Nom:</label>
+						<input type="text" name="catModif" id="catModif" />
+					</p>
+					
+					<p>
+						<input type="submit" value="Valider" />
+					</p>
+					
+				</div>
 			
-			<p>
-				<label for="nom">Nom:</label>
-				<input type="text" id="nom" name="nom" />
-			</p>
-			<input type="submit" value="Ajouter" />
-		</form>
-		
+			</form>
+			
+			<h2>Nouvelle catégorie</h2>
+			<form action="controleur_admin/ajouterCategorie.php" method="post" >
+				<?php
+					echo "<input type='hidden' name='idProduit' value='" . $idProduit . "' />";
+				?>
+				
+				<p>
+					<label for="nom">Nom:</label>
+					<input type="text" id="nom" name="nom" />
+				</p>
+				<input type="submit" value="Ajouter" />
+			</form>
+		</div>
 		<script>
 			function goPageSuppr()
 			{

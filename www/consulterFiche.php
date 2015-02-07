@@ -26,12 +26,6 @@
 		</div>
 		<?php
 	}
-	if(isset($_SESSION['admin']))
-	{
-		echo "<input type='button' onclick=" .
-		      "\"document.location='./admin/modifierFicheProduit.php?id=".
-			   $p->getId() . "'\" value='Modifier fiche' />";
-	}
   ?>
   </body>
 </html>

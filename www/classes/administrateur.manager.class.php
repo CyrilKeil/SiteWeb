@@ -9,7 +9,7 @@
 		
 		public function getAdmin($login, $mdp)
 		{
-			$requete = "SELECT login, motdepasse ".
+			$requete = "SELECT id, login, motdepasse ".
 						"FROM administrateurs ".
 						"WHERE login= '". $login . "'".
 						" AND motdepasse='" . $mdp . "'";
@@ -31,9 +31,9 @@
 			return (mysqli_num_rows($resultat) == 1);	
 		}
 		
-		public function majMdp($newMdp)
+		public function majMdp($id, $newMdp)
 		{
-			$requete = "UPDATE administrateurs SET motdepasse=" . $newMdp;
+			$requete = "UPDATE administrateurs SET motdepasse=" . $newMdp . " WHERE id=" . $id;
 			mysqli_query($this->bdd, $requete);
 		}
 		

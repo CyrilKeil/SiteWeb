@@ -127,9 +127,10 @@
 		
 		public function createProduit ($produit) 
 		{
-			$infos = array_slice($produit->getInfosProduit(),1);
+	
 			$requete = "INSERT INTO produits(nom,description, prix) ".
-						"VALUE(" . $infos['nom'] . ", " . $infos['description'] . ", " . $infos['prix'] . ")";
+						"VALUES('" . $produit->getNom() . "', '" . $produit->getDescription()
+						. "', " . $produit->getPrix() . ")";
 			
 			
 			
@@ -140,6 +141,20 @@
 		{
 			$requete = "DELETE FROM produits WHERE id_produit=" . $produit->getId();
 			mysqli_query($this->bdd, $requete);
+		}
+		
+		public function getId($produit)
+		{
+			$requete = "SELECT id_produit as id FROM produits WHERE nom='" .  $produit->getNom() . 
+					 	"' AND prix=". $produit->getPrix() . " AND description='" . $produit->getDescription() . "'";
+			$resultat = mysqli_query($this->bdd,$requete);
+			$return = 0;
+			if (mysqli_num_rows($resultat) == 1){
+				$temp =  mysqli_fetch_assoc($resultat);
+				$return = $temp ['id'];
+			}
+			
+			return $return;
 		}
 	}
 ?>

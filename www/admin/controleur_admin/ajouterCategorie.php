@@ -8,7 +8,7 @@
 	}
 	
 	if(isset($_POST['nom']) && !empty($_POST['nom'])
-		&& isset($_POST['idProduit']) && !empty($_POST['idProduit']))
+		&& isset($_POST['idProduit']))
 	{
 		$cm = new CategorieManager($bdd);
 		$cm->addCategorie($_POST['nom']);
