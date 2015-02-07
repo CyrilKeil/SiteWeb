@@ -13,12 +13,7 @@
 					<li class="btnDeconnexion">Bienvenue <?php echo $_SESSION['admin'] ?> <input type='button' onclick="document.location.href='<?php echo $page ?>';" value='Deconnexion' /></li>
 					<?php
 				}
-				else{
-					$page = "controleur_admin/connexion.php";
-					?>
-					<li class="btnConnexion"><input type ="button" class="button" onclick = "document.location.href='<?php echo $page ?>';" value="Connexion" /></li>
-					<?php
-				}
+				
 			?>
 			</form>
 		</ul>

@@ -63,7 +63,24 @@
 				<input type ="button" value="Ajouter une catégorie" 
 				onclick="document.location='ajouterCategorie.php?idProduit=<?php echo $p->getId(); ?>'" />
 			<p>
-			
+			<p>
+				Produit coup de coeur:
+				<?php
+					if($pm->isCoupCoeur($p))
+					{
+				?>
+					<input type="radio" name="coupdeCoeur" value="oui" id="oui" checked /><label for="oui">Oui</label>
+					<input type="radio" name="coupdeCoeur" value="non" id="non" /><label for="non">Non</label>
+					<?php
+					}
+					else {
+					?>
+					<input type="radio" name="coupdeCoeur" value="oui" id="oui" /><label for="oui">Oui</label>
+					<input type="radio" name="coupdeCoeur" value="non" id="non" checked /><label for="non">Non</label>
+				<?php
+					}
+				?>
+			</p>
 			<input type="submit" value="Valider" /> 
 		</form>
 	</body>

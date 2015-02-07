@@ -28,6 +28,14 @@
 			return $return;
 		}
 		
+		public function isCoupCoeur ($produit)
+		{
+			$requete = "SELECT id_produit FROM coupdecoeur WHERE id_produit=" . $produit->getId();
+			$resultat = mysqli_query($this->bdd, $requete);
+			
+			return (mysqli_num_rows($resultat) == 1);
+		}
+		
 		public function getListeCoupCoeur ($filtre){
 			$requete = "SELECT p.id_produit as id, p.nom, p.description, p.prix, c.nom as categorie " .
 						"FROM produits p, categorie_produit cp, categories c ".

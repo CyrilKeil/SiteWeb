@@ -6,7 +6,7 @@
 		$liste_categories = $cm->getAllCategories();
 		foreach ($liste_categories as $value)
 		{
-			echo "<p><a href='index.php?cat=". $value[0] . "' class='boite'>" . $value[1] . "</a></p>";
+			echo "<p><a href='listageProduit.php?cat=". $value[0] . "' class='boite'>" . $value[1] . "</a></p>";
 		}
 	?>
 </div>
