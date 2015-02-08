@@ -7,8 +7,8 @@
 		header('Location: ../admin_connexion.php');
 	}
 	
-	if(isset($_POST['idCategorie']) && !empty($_POST['idCategorie'])
-		&& isset($_POST['idProduit']) && !empty($_POST['idProduit'])
+	if(isset($_POST['idCategorie'])
+		&& isset($_POST['idProduit'])
 		&& isset($_POST['catModif']) && !empty($_POST['catModif']))
 	{
 		$cm = new CategorieManager($bdd);

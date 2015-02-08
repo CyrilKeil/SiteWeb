@@ -9,7 +9,7 @@
 		{
 			$adminManager = new AdministrateurManager($bdd);
 			$adminManager->creerAdmin($_POST['login'], $_POST['mdp']);
-			header('Location: index.php');
+			header('Location: ../index.php');
 		}
 		else
 		{

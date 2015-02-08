@@ -52,6 +52,9 @@
 					if($_GET['erreur'] == "tropgros"){
 						echo "<p>L'image ne doit pas dépasser 100ko</p>";
 					}
+					if($_GET['erreur'] == "erreurSuppr"){
+						echo "<p>Problème lors de la suppression de l'ancienne image</p>";
+					}
 					
 				?>
 				</div>		
@@ -61,7 +64,7 @@
 			?>
 			<form action="controleur_admin/supprimerProduit.php" method="post" >
 				<?php
-					echo "<input type='hidden' name='idProduit' value'" . $p->getId() . "' />";
+					echo "<input type='hidden' name='idProduit' value='" . $p->getId() . "' />";
 				?>
 				<input type="submit" value="Supprimer le produit" />
 			</form>

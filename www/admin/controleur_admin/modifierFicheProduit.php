@@ -29,7 +29,16 @@
 			
 			if(isset($_FILES['image']))
 			{
-				 $dossier = '../../../images/';
+				if (file_exists(dirname(__FILE__) . '/../../../images/produits/produit'. $p->getId() . '.jpg'))
+				{
+					if(unlink('../../../images/produits/produit'. $p->getId() . '.jpg'))
+					{
+					}
+					else{
+						header('Location: ../modifierFicheProduit.php?erreur=erreurSuppr');
+					}
+				}
+				 $dossier = '../../../images/produits/';
 				 $fichier = 'produit' . $p->getId() . '.jpg';
 				 $extension = strrchr($_FILES['image']['name'], '.');
 				 if($extension == '.jpg') {

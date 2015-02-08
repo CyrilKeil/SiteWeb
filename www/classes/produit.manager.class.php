@@ -13,7 +13,6 @@
 						"WHERE p.id_produit = cp.id_produit ".
 						"AND c.id_categorie = cp.id_categorie ".
 						"AND p.id_produit = " . $id;
-						
 			$resultat = mysqli_query($this->bdd, $requete);
 			$return = array();
 			if (mysqli_num_rows($resultat) == 1){
@@ -114,11 +113,56 @@
 			 return $liste_produit;
 		}
 		
+		public function getListeCoupdeCoeurRecherche ($listeIdProduits)
+		{
+			$requete = "SELECT p.id_produit as id, p.nom, p.description, p.prix, c.nom as categorie " .
+						"FROM produits p, categorie_produit cp, categories c ".
+						"WHERE p.id_produit = cp.id_produit ".
+						"AND c.id_categorie = cp.id_categorie ".
+						"AND p.id_produit IN (SELECT id_produit " .
+												  "FROM coupdecoeur) " .
+						"AND p.id_produit IN (" . implode(", ", $listeIdProduits) . ") ".
+						"ORDER BY nom";
+		
+			$resultat = mysqli_query($this->bdd,$requete);
+			 $liste_produit = array();
+			 
+			 while ($donnees = mysqli_fetch_assoc($resultat))
+			 {
+				$liste_produit [] = new Produit($donnees);
+			 }
+			 
+			 return $liste_produit;
+		}
+		
+		public function getListeProduitRecherche ($listeIdProduits)
+		{
+			$requete = "SELECT p.id_produit as id, p.nom, p.description, p.prix, c.nom as categorie " .
+						"FROM produits p, categorie_produit cp, categories c ".
+						"WHERE p.id_produit = cp.id_produit ".
+						"AND c.id_categorie = cp.id_categorie ".
+						"AND p.id_produit NOT IN (SELECT id_produit " .
+												  "FROM coupdecoeur) " .
+						"AND p.id_produit IN (" . implode(", ", $listeIdProduits) . ") ".
+						"ORDER BY nom";
+					
+			$resultat = mysqli_query($this->bdd, $requete);
+
+			 $liste_produit = array();
+			 
+			 while ($donnees = mysqli_fetch_assoc($resultat))
+			 {
+				$liste_produit [] = new Produit($donnees);
+			 }
+			 
+			 return $liste_produit;
+		}
+		
 		public function setProduit ($produit)
 		{
 			$requete = "UPDATE produits " . 
-						"SET prix = " . $infos['prix'] . ", description= " . $infos['description'] . ", nom = " . $infos['nom'] . " ".
-						"WHERE id_produit = ". $infos['id'];
+						"SET prix = " . $produit->getPrix() . ", description= '" . $produit->getDescription() . "', nom = '" . $produit->getNom() . "' ".
+						"WHERE id_produit = ". $produit->getId();
 						
 			mysqli_query($this->bdd,$requete);
 			

@@ -2,8 +2,7 @@
 	class RechercheManager {
 		private $bdd;
 		
-		public function __construct($bdd)
-		{
+		public function __construct($bdd) {
 			$this->bdd = $bdd;
 		}
 		
@@ -53,14 +52,33 @@
 			return $liste_id_produit;
 		}
 		
+		public function concateneArray ($arrayDestination,$arrayConcatenee)
+		{
+			foreach($arrayConcatenee as $value)
+			{
+				array_push($arrayDestination, $value);
+			}
+			return $arrayDestination;
+		}
+		
 		public function recherche ($chaineDeCaracteres)
 		{
 			//on transforme la chaine en tableau
-			
-			foreach ($tableauDemot as $mot)
+			$tableauDemots = explode(' ', $chaineDeCaracteres);
+			$listeIdProduits = array();
+			foreach ($tableauDemots as $mot)
 			{
+				$temp = $this->rechercheParNom($mot);
+				$listeIdProduits = $this->concateneArray($listeIdProduits, $temp);
+				
+				$temp = $this->rechercheParPrix($mot);
+				$listeIdProduits = $this->concateneArray($listeIdProduits, $temp);
+				
+				$temp = $this->rechercheParCategorie($mot);
+				$listeIdProduits = $this->concateneArray($listeIdProduits, $temp);
 				
 			}
+			return $listeIdProduits;
 			
 		}
 	}

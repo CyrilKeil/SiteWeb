@@ -33,14 +33,14 @@
 		
 		public function majMdp($id, $newMdp)
 		{
-			$requete = "UPDATE administrateurs SET motdepasse=" . $newMdp . " WHERE id=" . $id;
+			$requete = "UPDATE administrateurs SET motdepasse='" . $newMdp . "' WHERE id=" . $id;
 			mysqli_query($this->bdd, $requete);
 		}
 		
 		public function creerAdmin($login, $mdp)
 		{
 			$requete = "INSERT INTO administrateurs(login, motdepasse) ".
-						"VALUES(" . $login . ", " . $mdp . ")";
+						"VALUES('" . $login . "', '" . $mdp . "')";
 						
 			mysqli_query($this->bdd, $requete);
 		}

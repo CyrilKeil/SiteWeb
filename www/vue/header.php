@@ -10,7 +10,7 @@ $pseudo = "";
 <div id="header">
 	<img src="../images/banniere.jpg" alt="banniere"/>
 	<div class="nav">
-		<ul><form action="#" method="POST">
+		<ul><form action="index.php" method="POST">
 			<li><img src="../images/search.png" alt="search" name="search"/></li>
 			<li><label for="recherche">Rechercher</label></li>
 			<li><input type="text" name="recherche" id="recherche" size="50"/></li>

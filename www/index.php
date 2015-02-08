@@ -13,7 +13,13 @@
   <?php
   	include("vue/header.php");
 	include("vue/menuGauche.php");
-	include("vue/produits.php");
+	if(isset($_POST['recherche']) && !empty($_POST['recherche']))
+	{
+		include('vue/recherche.php');
+	}
+	else{
+		include("vue/produits.php");
+	}
   ?>
   </body>
 </html>
